@@ -10,3 +10,20 @@
 # The average student `1` is `87`.
 # The average of student `2` is `88.6`, but with integer division is `88`.
 
+def csAverageOfTopFive(scores):
+    scores.sort(reverse=True)
+    res = []
+    curr = []
+    indx = scores[0][0]
+    
+    for i, val in scores:
+        if i == indx:
+            if len(curr) < 5:
+                curr.append(val)
+        else:
+            res.append([indx, sum(curr) // len(curr)])
+            curr = [val]
+            indx = i
+    res.append([indx, sum(curr) // len(curr)])
+    res = res[::-1]
+    return res
