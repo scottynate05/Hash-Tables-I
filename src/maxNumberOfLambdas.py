@@ -17,3 +17,9 @@
 # Input: text = "sctlamb"
 # Output: 0
 
+from collections import Counter
+
+def csMaxNumberOfLambdas(text):
+    cnt = Counter(text)
+    cntLambdas = Counter('lambda')
+    return min([cnt[c] // cntLambdas[c] for c in cntLambdas])
