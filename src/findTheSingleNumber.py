@@ -13,3 +13,12 @@
 # Input: [1,2,1,2,1,2,80]
 # Output: 80
 
+from collections import defaultdict
+
+def csFindTheSingleNumber(nums):
+    tbl = defaultdict(int)
+    for i in nums:
+        tbl[i] += 1
+    for i in tbl:
+        if tbl[i] == 1:
+            return i
